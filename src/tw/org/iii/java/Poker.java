@@ -6,20 +6,19 @@ public class Poker {
 		// 洗牌
 		int[] poker = new int[52];
 		for (int i=0; i<poker.length; i++){
-			int temp = (int)(Math.random()*52);
-			
+			int temp;
 			// 檢查機制
-			boolean isRepeat = false;
-			for (int j=0; j<i; j++){
-				if (temp == poker[j]){
-					isRepeat = true;
-					break;
+			boolean isRepeat;
+			do {
+				temp = (int)(Math.random()*52);
+				isRepeat = false;
+				for (int j=0; j<i; j++){
+					if (temp == poker[j]){
+						isRepeat = true;
+						break;
+					}
 				}
-			}
-			if (isRepeat) {
-				i--;
-				continue;
-			}
+			}while(isRepeat);
 			
 			System.out.println(temp);
 			poker[i] = temp;
