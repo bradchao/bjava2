@@ -18,6 +18,11 @@ public class TWId {
 		boolean ret = false;
 		if (id.matches("^[A-Z][12][0-9]{8}$")){
 			// 驗證碼的比對
+			String check = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
+			int pos = check.indexOf(id.charAt(0));
+			int n12 = pos + 10;
+			int n1 = n12 / 10;
+			int n2 = n12 % 10;
 			ret = true;
 		}
 		
