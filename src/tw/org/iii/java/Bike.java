@@ -3,10 +3,14 @@ package tw.org.iii.java;
 public class Bike {
 	private double speed;
 	private int color;
+	int a;
+	static int count;
 	
 	Bike(){
 		System.out.println("Bike()");
 		color = 2;
+		a++;
+		count++;
 	}
 	Bike(int c){
 		System.out.println("Bike(int)");
@@ -25,6 +29,8 @@ public class Bike {
 	double getSpeed(){
 		return speed;
 	}
-	
+	static void m1(){
+		System.out.println("m1");
+	}
 	
 }

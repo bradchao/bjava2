@@ -10,10 +10,17 @@ public class TWId {
 	int getArea(){
 		return 1;
 	}
+	// true: female; false: male
 	boolean getGender(){
-		return true;
+		return id.charAt(1)==2;
 	}
 	boolean isRight(){
-		return true;
+		boolean ret = false;
+		if (id.matches("^[A-Z][12][0-9]{8}$")){
+			// 驗證碼的比對
+			ret = true;
+		}
+		
+		return ret;
 	}
 }
