@@ -2,7 +2,35 @@ package tw.org.iii.java;
 
 public class TWId {
 	private String id;
+	static String check = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
 	
+	public TWId(){
+		this((int)(Math.random()*26));
+	}
+	public TWId(boolean gender){
+		this(gender, (int)(Math.random()*26));
+	}
+	public TWId(int area){
+		this((int)(Math.random()*2)==0?true:false ,area);
+	}
+	public TWId(boolean gender, int area){
+		String temp = check.substring(area, area+1);
+		temp += gender?"2":"1";
+		temp += (int)(Math.random()*10);
+		temp += (int)(Math.random()*10);
+		temp += (int)(Math.random()*10);
+		temp += (int)(Math.random()*10);
+		temp += (int)(Math.random()*10);
+		temp += (int)(Math.random()*10);
+		temp += (int)(Math.random()*10);
+		for (int i=0; i<10; i++){
+			if (isRight(temp + i)){
+				id = temp + i;
+				break;
+			}
+		}
+	}
+	public String getId(){return id;}
 	public TWId(String id){
 		this.id = id;
 	}
@@ -18,7 +46,6 @@ public class TWId {
 		boolean ret = false;
 		if (id.matches("^[A-Z][12][0-9]{8}$")){
 			// 驗證碼的比對
-			String check = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
 			int pos = check.indexOf(id.charAt(0));
 			int n12 = pos + 10;
 			int n1 = n12 / 10;
