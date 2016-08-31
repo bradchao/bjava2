@@ -28,7 +28,13 @@ public class Poker {
 			player[i%4][i/4] = poker[i];
 		}
 		
-		
+		// 攤牌
+		for (int[] cards :player){
+			for (int card :cards){
+				System.out.print(card + "  ");
+			}
+			System.out.println();
+		}
 		
 		
 	}
