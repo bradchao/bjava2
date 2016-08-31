@@ -14,7 +14,7 @@ public class TWId {
 	boolean getGender(){
 		return id.charAt(1)==2;
 	}
-	boolean isRight(){
+	static boolean isRight(String id){
 		boolean ret = false;
 		if (id.matches("^[A-Z][12][0-9]{8}$")){
 			// 驗證碼的比對
