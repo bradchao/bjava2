@@ -14,6 +14,7 @@ public class TWId {
 		this((int)(Math.random()*2)==0?true:false ,area);
 	}
 	public TWId(boolean gender, int area){
+		// super()
 		String temp = check.substring(area, area+1);
 		temp += gender?"2":"1";
 		temp += (int)(Math.random()*10);
