@@ -6,21 +6,36 @@ public class Brad26 {
 
 	public static void main(String[] args) {
 		// 1. create Answer
-		String answer = createAnswer(2);
-		System.out.println(answer);
+		String answer = createAnswer(4);
+		//System.out.println(answer);
 		
 		// 2. start game
-		for (int i=0; i<3; i++){
+		boolean isWINNER = false;
+		for (int i=0; i<10; i++){
 			// 3. Guess
 			String guess = JOptionPane.showInputDialog("Input");
 			
 			// 4. Check ?A?B
+			if (guess.equals(answer)){
+				isWINNER = true;
+				break;
+			}
 			String result = checkAB(answer, guess);
 			JOptionPane.showMessageDialog(null, 
 					guess + ":" + result);
 		}
 		
 		// 5. WINNER / ....
+		if (isWINNER){
+			JOptionPane.showMessageDialog(null, 
+					"恭喜老爺");
+		}else{
+			JOptionPane.showMessageDialog(null, 
+					"魯蛇一條：" + answer);
+		}
+		
+		
+		
 	}
 
 	static String createAnswer(int n){
@@ -50,9 +65,9 @@ public class Brad26 {
 	static String checkAB(String a, String g){
 		int A, B; A = B = 0;
 		for (int i=0; i<g.length(); i++){
-			if (g中第i馬 == a中第i馬  ){
+			if (g.charAt(i) == a.charAt(i)){
 				A++;
-			}else if (g中第i馬存在於ａ中){
+			}else if (a.indexOf(g.charAt(i))!=-1){
 				B++;
 			}
 		}
