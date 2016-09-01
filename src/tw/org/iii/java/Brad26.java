@@ -6,7 +6,7 @@ public class Brad26 {
 
 	public static void main(String[] args) {
 		// 1. create Answer
-		String answer = createAnswer();
+		String answer = createAnswer(2);
 		System.out.println(answer);
 		
 		// 2. start game
@@ -23,9 +23,9 @@ public class Brad26 {
 		// 5. WINNER / ....
 	}
 
-	static String createAnswer(){
+	static String createAnswer(int n){
 		// 洗牌
-		int[] poker = new int[4];
+		int[] poker = new int[n];
 		for (int i=0; i<poker.length; i++){
 			int temp;
 			// 檢查機制
@@ -42,10 +42,10 @@ public class Brad26 {
 			}while(isRepeat);
 			poker[i] = temp;
 		}
-		// poker[0], [1], [2]
+		String ret = "";
+		for (int p : poker)ret += p;
 		
-		
-		return "" + poker[0] + poker[1] + poker[2] + poker[3];
+		return ret;
 	}
 	static String checkAB(String a, String g){
 		return "1A1B";
