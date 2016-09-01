@@ -1,10 +1,13 @@
 package tw.org.iii.java;
 
 public class Brad27 {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
-
+}
+class Brad271 {
+	
+}
+class Brad272 extends Brad271 {
+	
 }
