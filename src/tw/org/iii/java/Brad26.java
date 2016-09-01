@@ -10,15 +10,15 @@ public class Brad26 {
 		System.out.println(answer);
 		
 		// 2. start game
-//		for (int i=0; i<3; i++){
-//			// 3. Guess
-//			String guess = JOptionPane.showInputDialog("Input");
-//			
-//			// 4. Check ?A?B
-//			String result = checkAB(answer, guess);
-//			JOptionPane.showMessageDialog(null, 
-//					guess + ":" + result);
-//		}
+		for (int i=0; i<3; i++){
+			// 3. Guess
+			String guess = JOptionPane.showInputDialog("Input");
+			
+			// 4. Check ?A?B
+			String result = checkAB(answer, guess);
+			JOptionPane.showMessageDialog(null, 
+					guess + ":" + result);
+		}
 		
 		// 5. WINNER / ....
 	}
@@ -48,7 +48,15 @@ public class Brad26 {
 		return ret;
 	}
 	static String checkAB(String a, String g){
-		return "1A1B";
+		int A, B; A = B = 0;
+		for (int i=0; i<g.length(); i++){
+			if (g中第i馬 == a中第i馬  ){
+				A++;
+			}else if (g中第i馬存在於ａ中){
+				B++;
+			}
+		}
+		return A + "A" + B + "B";
 	}
 	
 }
