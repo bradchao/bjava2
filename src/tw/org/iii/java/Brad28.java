@@ -22,6 +22,12 @@ public class Brad28 extends JFrame implements ActionListener{
 		add(open); add(save); add(exit);
 		open.addActionListener(this);
 		save.addActionListener(new MyListener());
+		exit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		
 		setSize(640, 480);
 		setVisible(true);
