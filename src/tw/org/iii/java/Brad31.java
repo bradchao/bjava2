@@ -9,10 +9,12 @@ public class Brad31 {
 			int c = a / b;
 			System.out.println(c);
 			System.out.println(d[4]);
-		}catch (ArithmeticException ae){
-			System.out.println("Brad1");
 		}catch (ArrayIndexOutOfBoundsException ae){
 			System.out.println("Brad2");
+		}catch (ArithmeticException ae){
+			System.out.println("Brad1");
+		}catch(RuntimeException re){
+			System.out.println("OK");
 		}
 		System.out.println("Game Over");
 	}
