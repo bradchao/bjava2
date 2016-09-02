@@ -25,6 +25,18 @@ public class Brad34 {
 			file2.mkdirs();
 		}
 		
+		File f1 = new File("c:/test");
+		File f2 = new File("c:/test");
+		System.out.println(f1 == f2);
+		
+		File[] roots = File.listRoots();
+		for (File root : roots){
+			System.out.println(root.getAbsolutePath());
+		}
+		
+		
+		
+		
 		
 	}
 }
