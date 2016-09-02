@@ -9,12 +9,12 @@ public class Brad35 {
 
 	public static void main(String[] args) {
 		File f1 = new File("dir1/brad.txt");
+		long len = f1.length();
 		try {
 			FileInputStream fis = new FileInputStream(f1);
-			int c; byte[] buf = new byte[3];
-			while ( (c = fis.read(buf)) != -1){
-				System.out.print(new String(buf,0,c));
-			}
+			int c; byte[] buf = new byte[(int)len];
+			c = fis.read(buf);
+			System.out.println(new String(buf));
 			
 			
 			fis.close();
