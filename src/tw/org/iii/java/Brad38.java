@@ -10,12 +10,17 @@ public class Brad38 {
 	public static void main(String[] args) {
 		try {
 			FileInputStream fin = 
-					new FileInputStream("dir1/brad.txt");
+					new FileInputStream("dir1/Book1.csv");
 			InputStreamReader irs = new InputStreamReader(fin);
 			BufferedReader br = new BufferedReader(irs);
 			
-			String line = br.readLine();
-			System.out.println(line);
+			String line;
+			while ((line = br.readLine()) != null){
+				String[] row = line.split(",");
+				System.out.println("Name:" + row[0] + 
+					"\t Tel:" + row[1] + 
+					"\t Addr.:" + row[2]);
+			}
 			
 			fin.close();
 		} catch (Exception e) {
