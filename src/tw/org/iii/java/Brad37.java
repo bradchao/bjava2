@@ -1,0 +1,24 @@
+package tw.org.iii.java;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+public class Brad37 {
+
+	public static void main(String[] args) {
+		try {
+			FileOutputStream fout =
+				new FileOutputStream("dir1/test1.txt");
+			fout.flush();
+			fout.close();
+			System.out.println("Write OK");
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		
+		
+		
+		
+	}
+
+}
