@@ -5,6 +5,8 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -15,6 +17,7 @@ import javax.swing.JTextArea;
 public class MyEditor extends JFrame{
 	private JButton open,save,exit;
 	private JTextArea editor;
+	private File openFile;
 	
 	public MyEditor(){
 		super("My Editor");
@@ -57,9 +60,23 @@ public class MyEditor extends JFrame{
 		JFileChooser jfc = new JFileChooser();
 		if (jfc.showOpenDialog(null)==
 				JFileChooser.APPROVE_OPTION){
-			File openFile = jfc.getSelectedFile();
-			System.out.println(openFile.getAbsolutePath());
+			openFile = jfc.getSelectedFile();
+			readFile();
 		}
+	}
+	private void readFile(){
+		if (openFile==null) return;
+		editor.setText("");
+		try {
+			FileReader reader = new FileReader(openFile);
+			int c;
+			while ( (c = reader.read()) != -1){
+				editor.append("" + (char)c);
+			}
+			reader.close();
+		} catch (Exception e) {
+		}
+		
 	}
 	private void doSave(){
 		
