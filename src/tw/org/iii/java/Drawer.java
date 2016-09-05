@@ -30,20 +30,23 @@ public class Drawer extends JPanel{
 
 		@Override
 		public void mouseDragged(MouseEvent e) {
-			// TODO Auto-generated method stub
 			super.mouseDragged(e);
+			int x = e.getX(), y = e.getY();
+			System.out.println("Dragged:" + x + "x" + y);
 		}
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
 			super.mousePressed(e);
+			int x = e.getX(), y = e.getY();
+			System.out.println("Pressed:" + x + "x" + y);
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
 			super.mouseReleased(e);
+			int x = e.getX(), y = e.getY();
+			System.out.println("Released:" + x + "x" + y);
 		}
 		
 	}
