@@ -9,6 +9,7 @@ public class Brad37 {
 		try {
 			FileOutputStream fout =
 				new FileOutputStream("dir1/test1.txt");
+			fout.write("1234567\n7654321\nabcdefg".getBytes());
 			fout.flush();
 			fout.close();
 			System.out.println("Write OK");
