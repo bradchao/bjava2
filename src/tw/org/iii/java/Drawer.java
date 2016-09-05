@@ -4,10 +4,17 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
 
-public class Drawer extends JPanel {
+public class Drawer extends JPanel{
+	public Drawer(){
+		MyListener listener = new MyListener();
+		addMouseListener(listener);
+		addMouseMotionListener(listener);
+	}
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -18,4 +25,27 @@ public class Drawer extends JPanel {
 		g2d.drawLine(0, 0, 100, 100);
 		
 	}
+	
+	private class MyListener extends MouseAdapter {
+
+		@Override
+		public void mouseDragged(MouseEvent e) {
+			// TODO Auto-generated method stub
+			super.mouseDragged(e);
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			super.mousePressed(e);
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			super.mouseReleased(e);
+		}
+		
+	}
+	
 }
