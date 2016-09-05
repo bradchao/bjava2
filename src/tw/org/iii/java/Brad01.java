@@ -2,12 +2,12 @@ package tw.org.iii.java;
 
 public class Brad01 {
 	/*
-	 * °Ï¶ôµù¸Ñ
-	 * °¸ªº²Ä¤@¤ä«°¥«
+	 * æˆ‘çš„ç¬¬ä¸€æ”¯Javaç¨‹å¼
+	 * 
 	 * 
 	 */
 	/**
-	 * JavaDoc => Create JavaDoc API ¤å¥ó
+	 * JavaDoc => Create JavaDoc API ï¿½ï¿½ï¿½
 	 * @author Brad
 	 * @since 1.0
 	 * @param args
