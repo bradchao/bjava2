@@ -1,0 +1,17 @@
+package tw.org.iii.java;
+
+import java.util.HashSet;
+
+public class Brad41 {
+
+	public static void main(String[] args) {
+		HashSet set = new HashSet();
+		set.add(12);	// int = Auto-Boxing => Integer
+		set.add("Brad");
+		set.add(12.3);
+		set.add(new Student("Brad",1,2,3));
+		System.out.println(set.size());
+		
+	}
+
+}
