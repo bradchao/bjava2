@@ -3,6 +3,7 @@ package tw.org.iii.java;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 public class Brad39 {
 	public static void main(String[] args) {
@@ -21,7 +22,7 @@ public class Brad39 {
 		}
 	}
 }
-class Student {
+class Student implements Serializable{
 	int ch, eng, math;
 	Student(int ch, int eng, int math){
 		this.ch = ch; this.eng = eng; this.math=math;
