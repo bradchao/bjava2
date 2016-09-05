@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class MyEditor extends JFrame{
@@ -31,7 +32,8 @@ public class MyEditor extends JFrame{
 		add(top, BorderLayout.NORTH);
 		
 		editor = new JTextArea();
-		add(editor, BorderLayout.CENTER);
+		JScrollPane jsp = new JScrollPane(editor);
+		add(jsp, BorderLayout.CENTER);
 		
 		setSize(800, 600);
 		setVisible(true);
