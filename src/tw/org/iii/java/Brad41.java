@@ -10,7 +10,11 @@ public class Brad41 {
 		set.add("Brad");
 		set.add(12.3);
 		set.add(new Student("Brad",1,2,3));
+		set.add(new Student("Brad",1,2,3));
+		set.add("Brad");
+		set.add(12);
 		System.out.println(set.size());
+		System.out.println(set.toString());
 		
 	}
 
