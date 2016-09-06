@@ -58,7 +58,7 @@ public class MyPainter extends JFrame{
 		drawer.undo();
 	}
 	private void redoDrawer(){
-		drawer.clear();
+		drawer.redo();
 	}
 	
 	public static void main(String[] args) {
