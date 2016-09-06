@@ -1,6 +1,8 @@
 package tw.org.iii.java;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,11 +23,32 @@ public class Racing extends JFrame{
 			add(lanes[i]);
 		}
 		
+		go.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				go();
+			}
+		});
+		
 		setSize(1024, 400);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
+	private void go(){
+		
+	}
+	
+	private class Car extends Thread {
+		private int num;
+		Car(int num){this.num = num;}
+		@Override
+		public void run() {
+			for (int i=0; i<100; i++){
+				lanes[num].setText(lanes[num].getText()+">");
+			}
+		}
+	}
 	
 	public static void main(String[] args) {
 		new Racing();
