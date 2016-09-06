@@ -11,15 +11,17 @@ import javax.swing.JPanel;
 
 public class MyPainter extends JFrame{
 	private Drawer drawer;
-	private JButton clear;
+	private JButton clear, undo, redo;
 	
 	public MyPainter(){
 		super("My Painter");
 		setLayout(new BorderLayout());
 		
 		clear = new JButton("Clear");
+		undo = new JButton("Undo");
+		redo = new JButton("Redo");
 		JPanel top = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		top.add(clear);
+		top.add(clear);top.add(undo);top.add(redo);
 		add(top, BorderLayout.NORTH);
 		
 		drawer = new Drawer();
@@ -35,9 +37,27 @@ public class MyPainter extends JFrame{
 				clearDrawer();
 			}
 		});
+		undo.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				undoDrawer();
+			}
+		});
+		redo.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				redoDrawer();
+			}
+		});
 		
 	}
 	private void clearDrawer(){
+		drawer.clear();
+	}
+	private void undoDrawer(){
+		drawer.undo();
+	}
+	private void redoDrawer(){
 		drawer.clear();
 	}
 	

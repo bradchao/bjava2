@@ -46,6 +46,13 @@ public class Drawer extends JPanel{
 		lines.clear();
 		repaint();
 	}
+	void undo(){
+		lines.removeLast();
+		repaint();
+	}
+	void redo(){
+		
+	}
 	
 	private class MyListener extends MouseAdapter {
 
