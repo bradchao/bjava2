@@ -36,7 +36,13 @@ public class Racing extends JFrame{
 	}
 	
 	private void go(){
-		
+		Car[] cars = new Car[8];
+		for (int i=0; i<cars.length; i++){
+			cars[i] = new Car(i);
+		}
+		for (int i=0; i<cars.length; i++){
+			cars[i].start();
+		}
 	}
 	
 	private class Car extends Thread {
