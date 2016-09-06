@@ -42,6 +42,11 @@ public class Drawer extends JPanel{
 		
 	}
 	
+	void clear(){
+		lines.clear();
+		repaint();
+	}
+	
 	private class MyListener extends MouseAdapter {
 
 		@Override

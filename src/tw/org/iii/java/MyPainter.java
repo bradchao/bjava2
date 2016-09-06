@@ -2,6 +2,8 @@ package tw.org.iii.java;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,6 +28,17 @@ public class MyPainter extends JFrame{
 		setSize(1024, 768);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		clear.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				clearDrawer();
+			}
+		});
+		
+	}
+	private void clearDrawer(){
+		drawer.clear();
 	}
 	
 	public static void main(String[] args) {
