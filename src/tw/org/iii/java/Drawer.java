@@ -1,5 +1,6 @@
 package tw.org.iii.java;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -12,7 +13,8 @@ import java.util.LinkedList;
 import javax.swing.JPanel;
 
 public class Drawer extends JPanel {
-	private LinkedList<LinkedList<HashMap<String, Integer>>> lines, recycle;
+	private LinkedList<LinkedList<HashMap<String, Integer>>> 
+	lines, recycle;
 
 	public Drawer() {
 		MyListener listener = new MyListener();
@@ -29,6 +31,7 @@ public class Drawer extends JPanel {
 		super.paintComponent(g);
 
 		Graphics2D g2d = (Graphics2D) g;
+		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, 1.0f)); 
 		g2d.setColor(Color.BLUE);
 		g2d.setStroke(new BasicStroke(4));
 
