@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 public class MyPainter extends JFrame {
 	private Drawer drawer;
 	private JButton clear, undo, redo, save;
+	private MyClock clock;
 
 	public MyPainter() {
 		super("My Painter");
@@ -26,11 +27,17 @@ public class MyPainter extends JFrame {
 		undo = new JButton("Undo");
 		redo = new JButton("Redo");
 		save = new JButton("Save");
-		JPanel top = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		top.add(clear);
-		top.add(undo);
-		top.add(redo);
-		top.add(save);
+		clock = new MyClock();
+		JPanel top = new JPanel(new BorderLayout());
+		JPanel topLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel topRight = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		top.add(topLeft, BorderLayout.WEST);
+		top.add(topRight, BorderLayout.EAST);
+		topLeft.add(clear);
+		topLeft.add(undo);
+		topLeft.add(redo);
+		topLeft.add(save);
+		topRight.add(clock);
 		add(top, BorderLayout.NORTH);
 
 		drawer = new Drawer();
