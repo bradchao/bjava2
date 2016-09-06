@@ -6,6 +6,15 @@ public class Brad45 {
 		Brad451 obj2 = new Brad451("B");
 		obj1.start();
 		obj2.start();
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+		}
+		System.out.println("Main");
+		obj2.interrupt();
+		
+		
+		
 	}
 }
 class Brad451 extends Thread {
@@ -18,6 +27,7 @@ class Brad451 extends Thread {
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
+				break;
 			}
 		}
 	}
