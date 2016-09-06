@@ -49,6 +49,8 @@ public class Drawer extends JPanel{
 			HashMap<String,Integer> point = new HashMap<>();
 			point.put("x", x); point.put("y", y);
 			line.add(point);
+			
+			repaint();
 		}
 
 		@Override
