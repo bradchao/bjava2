@@ -52,6 +52,10 @@ public class Racing extends JFrame{
 		public void run() {
 			for (int i=0; i<100; i++){
 				lanes[num].setText(lanes[num].getText()+">");
+				try {
+					Thread.sleep((int)(Math.random()*200));
+				} catch (InterruptedException e) {
+				}
 			}
 		}
 	}
