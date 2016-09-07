@@ -28,6 +28,7 @@ public class Brad51 {
 			fin.close();
 			
 			socket.close();
+			System.out.println("Send OK!");
 		} catch (IOException e) {
 			System.out.println(e.toString());
 		}
