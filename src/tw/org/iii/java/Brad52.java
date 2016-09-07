@@ -14,6 +14,10 @@ public class Brad52 {
 			Socket socket = server.accept();
 			
 			InputStream in = socket.getInputStream();
+			int c;
+			while ( (c = in.read()) != -1){
+				System.out.print((char)c);
+			}
 			in.close();
 			
 			server.close();

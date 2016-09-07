@@ -13,7 +13,7 @@ public class Brad51 {
 				InetAddress.getByName("10.1.6.65"), 9999);
 			
 			OutputStream out = socket.getOutputStream();
-			
+			out.write("OK is KO".getBytes());
 			out.flush();
 			out.close();
 			
