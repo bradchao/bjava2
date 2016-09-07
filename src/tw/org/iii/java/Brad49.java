@@ -17,10 +17,11 @@ public class Brad49 {
 			DatagramPacket packet =
 				new DatagramPacket(buf, buf.length,
 					InetAddress.getByName("10.1.6.65"),8888);
+			socket.send(packet);
 			socket.close();
+			System.out.println("Send OK");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.toString());
 		}
 	}
 
