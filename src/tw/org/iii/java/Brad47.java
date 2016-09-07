@@ -31,23 +31,27 @@ public class Brad47 extends JFrame{
 		private Timer timer;
 		private int viewW, viewH;
 		private LinkedList<Ball> balls;
+		private Color[] colors = {Color.red,Color.black, Color.blue,
+				Color.green, Color.yellow};
 		
 		MyGame(){
 			timer = new Timer();
-			timer.schedule(new ViewTask(), 1000, 70);
+			timer.schedule(new TimerTask() {
+				@Override
+				public void run() {
+					repaint();
+				}
+			}, 1000, 70);
+			
 			balls = new LinkedList<>();
 			addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					balls.add(new Ball(e.getX(),e.getY(),40,40,10,10,Color.red));
+					balls.add(new Ball(
+							e.getX()-20,e.getY()-20,
+							40,40,10,10,colors[(int)(Math.random()*5)]));
 				}
 			});
-		}
-		private class ViewTask extends TimerTask {
-			@Override
-			public void run() {
-				repaint();
-			}
 		}
 		
 		private class Ball {
