@@ -28,14 +28,27 @@ public class Brad47 extends JFrame{
 		private int ballX, ballY;
 		MyGame(){
 			timer = new Timer();
-			
+			timer.schedule(new ViewTask(), 1000, 70);
 		}
-		private class BallTask extends TimerTask {
+		private class ViewTask extends TimerTask {
 			@Override
 			public void run() {
-				ballX += 10; ballY += 10;
+				repaint();
 			}
 		}
+		
+		private class Ball {
+			private int x, y, w, h;
+			private Color color;
+			private Timer timer;
+			Ball(int x, int y, int w, int h, Color color){
+				this.x=x;this.y=y;this.w=w;this.h=h;
+				this.color = color;
+				timer = new Timer();
+			}
+			
+		}
+		
 		@Override
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
