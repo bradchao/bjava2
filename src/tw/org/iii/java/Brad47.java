@@ -26,6 +26,7 @@ public class Brad47 extends JFrame{
 	private class MyGame extends JPanel {
 		private Timer timer;
 		private Ball myBall;
+		private int viewW, viewH;
 		
 		MyGame(){
 			timer = new Timer();
@@ -53,6 +54,12 @@ public class Brad47 extends JFrame{
 			private class BallTask extends TimerTask {
 				@Override
 				public void run() {
+					if (x<0 || x+w > viewW){
+						dx *= -1;
+					}
+					if (y<0 || y+h > viewH){
+						dy *= -1;
+					}
 					x += dx; y += dy;
 				}
 			}
@@ -62,6 +69,8 @@ public class Brad47 extends JFrame{
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			Graphics2D g2d = (Graphics2D)g;
+			
+			viewW = getWidth(); viewH = getHeight();
 			
 			g2d.setColor(myBall.color);
 			g2d.fillOval(myBall.x, myBall.y, myBall.w, myBall.h);
