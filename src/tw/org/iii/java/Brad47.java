@@ -25,10 +25,12 @@ public class Brad47 extends JFrame{
 	
 	private class MyGame extends JPanel {
 		private Timer timer;
-		private int ballX, ballY;
+		private Ball myBall;
+		
 		MyGame(){
 			timer = new Timer();
 			timer.schedule(new ViewTask(), 1000, 70);
+			myBall = new Ball(0,0,40,40,4,4,Color.red);
 		}
 		private class ViewTask extends TimerTask {
 			@Override
@@ -38,15 +40,22 @@ public class Brad47 extends JFrame{
 		}
 		
 		private class Ball {
-			private int x, y, w, h;
-			private Color color;
+			int x, y, w, h, dx, dy;
+			Color color;
 			private Timer timer;
-			Ball(int x, int y, int w, int h, Color color){
+			Ball(int x, int y, int w, int h, int dx, int dy, Color color){
 				this.x=x;this.y=y;this.w=w;this.h=h;
+				this.dx=dx;this.dy=dy;
 				this.color = color;
 				timer = new Timer();
+				timer.schedule(new BallTask(), 3000, 100);
 			}
-			
+			private class BallTask extends TimerTask {
+				@Override
+				public void run() {
+					x += dx; y += dy;
+				}
+			}
 		}
 		
 		@Override
@@ -54,8 +63,8 @@ public class Brad47 extends JFrame{
 			super.paintComponent(g);
 			Graphics2D g2d = (Graphics2D)g;
 			
-			g2d.setColor(Color.red);
-			g2d.fillOval(ballX, ballY, 30, 30);
+			g2d.setColor(myBall.color);
+			g2d.fillOval(myBall.x, myBall.y, myBall.w, myBall.h);
 		}
 	}
 	
