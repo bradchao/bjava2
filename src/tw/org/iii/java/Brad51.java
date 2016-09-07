@@ -1,5 +1,6 @@
 package tw.org.iii.java;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetAddress;
@@ -12,10 +13,19 @@ public class Brad51 {
 			Socket socket = new Socket(
 				InetAddress.getByName("10.1.6.65"), 9999);
 			
+			FileInputStream fin = 
+				new FileInputStream("dir1/coffee.jpg");
 			OutputStream out = socket.getOutputStream();
-			out.write("OK is KO".getBytes());
+
+			int b;
+			while ( (b = fin.read()) != -1){
+				out.write(b);
+			}
+			
 			out.flush();
 			out.close();
+			
+			fin.close();
 			
 			socket.close();
 		} catch (IOException e) {
