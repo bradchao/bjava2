@@ -4,6 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -25,13 +29,19 @@ public class Brad47 extends JFrame{
 	
 	private class MyGame extends JPanel {
 		private Timer timer;
-		private Ball myBall;
 		private int viewW, viewH;
+		private LinkedList<Ball> balls;
 		
 		MyGame(){
 			timer = new Timer();
 			timer.schedule(new ViewTask(), 1000, 70);
-			myBall = new Ball(0,0,40,40,4,4,Color.red);
+			balls = new LinkedList<>();
+			addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					balls.add(new Ball(e.getX(),e.getY(),40,40,10,10,Color.red));
+				}
+			});
 		}
 		private class ViewTask extends TimerTask {
 			@Override
@@ -49,7 +59,7 @@ public class Brad47 extends JFrame{
 				this.dx=dx;this.dy=dy;
 				this.color = color;
 				timer = new Timer();
-				timer.schedule(new BallTask(), 3000, 100);
+				timer.schedule(new BallTask(), 0, 40);
 			}
 			private class BallTask extends TimerTask {
 				@Override
@@ -72,8 +82,10 @@ public class Brad47 extends JFrame{
 			
 			viewW = getWidth(); viewH = getHeight();
 			
-			g2d.setColor(myBall.color);
-			g2d.fillOval(myBall.x, myBall.y, myBall.w, myBall.h);
+			for (Ball myBall : balls){
+				g2d.setColor(myBall.color);
+				g2d.fillOval(myBall.x, myBall.y, myBall.w, myBall.h);
+			}
 		}
 	}
 	
