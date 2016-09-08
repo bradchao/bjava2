@@ -26,7 +26,7 @@ public class Brad52 {
 			
 			fout.flush();
 			fout.close();
-			server.close();
+			socket.close();
 			System.out.println("Receive OK!");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
